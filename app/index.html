@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CoverCraft — Vice Poster Maker</title>
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<main class="app">
+  <section class="stage-wrap">
+    <canvas id="stage" width="810" height="1080" aria-label="Your poster, live preview"></canvas>
+    <p class="hint">Drag a photo to position it · Scroll to zoom · Click a panel to select it · Drop a photo file anywhere on the poster</p>
+  </section>
+  <aside class="controls">
+    <header>
+      <h1>COVER<span>CRAFT</span></h1>
+      <p class="tag">Vice Poster Maker — your photo, poster-grade cover art in five steps.</p>
+    </header>
+
+    <div class="group">
+      <h2>1 · Layout</h2>
+      <div id="layoutBar" class="bar col"></div>
+    </div>
+
+    <div class="group">
+      <h2>2 · Photo</h2>
+      <label class="switch"><input type="checkbox" id="modeSpread"> One photo across all panels</label>
+      <p id="panelTitle" class="panel-title"></p>
+      <button id="loadBtn" type="button" class="primary">Load photo from this device…</button>
+      <input id="photoFile" type="file" accept="image/*" hidden>
+      <p class="mini">Or start from a built-in scene:</p>
+      <div id="sampleBar" class="bar samples"></div>
+      <label class="slider">Zoom <input id="zoomRange" type="range" min="40" max="400" value="100"> <span id="zoomVal">100%</span></label>
+      <label class="slider">Rotate <input id="rotRange" type="range" min="-30" max="30" value="0"></label>
+      <div class="row">
+        <button id="removeBtn" type="button">Remove photo</button>
+        <button id="undoBtn" type="button">Undo</button>
+      </div>
+    </div>
+
+    <div class="group">
+      <h2>3 · Caption</h2>
+      <label>Title line 1 <input id="title1" type="text" maxlength="18" value="VICE"></label>
+      <label>Title line 2 <input id="title2" type="text" maxlength="18" value="HEAT"></label>
+      <label>Subtitle <input id="subtitle" type="text" maxlength="42" value="One city · No brakes"></label>
+      <div id="presetBar" class="bar chips"></div>
+      <label class="switch"><input type="checkbox" id="tagToggle" checked> Studio tag on the poster</label>
+    </div>
+
+    <div class="group">
+      <h2>4 · Colour grade</h2>
+      <div id="gradeBar" class="bar grades"></div>
+    </div>
+
+    <div class="group">
+      <h2>5 · Export</h2>
+      <div id="sizeBar" class="bar"></div>
+      <button id="exportBtn" type="button" class="export">Export PNG</button>
+      <p id="status" role="status"></p>
+      <p class="privacy">Photos are read on this device only — nothing is uploaded, ever.</p>
+    </div>
+  </aside>
+</main>
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>

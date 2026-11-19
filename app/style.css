@@ -1,0 +1,311 @@
+/* CoverCraft editor theme: a dark studio wall with a sunset-neon accent, so the
+   poster on the stage is always the brightest thing in the room. The caption
+   face is Anton (SIL Open Font License), bundled under fonts/. */
+
+@font-face {
+  font-family: "Anton";
+  src: url("fonts/Anton-Regular.ttf") format("truetype");
+  font-display: swap;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #0b0812;
+  color: #f2ecff;
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+
+.app {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* ---- stage ------------------------------------------------------------ */
+.stage-wrap {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 22px;
+  background:
+    radial-gradient(900px 480px at 70% -10%, rgba(214, 38, 120, 0.16), transparent 60%),
+    radial-gradient(700px 500px at 10% 110%, rgba(255, 110, 60, 0.12), transparent 60%),
+    #0b0812;
+}
+
+#stage {
+  max-width: 100%;
+  max-height: calc(100vh - 92px);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.65), 0 0 0 1px rgba(255, 255, 255, 0.08);
+  cursor: grab;
+  touch-action: none;
+}
+
+#stage:active {
+  cursor: grabbing;
+}
+
+.hint {
+  margin: 0;
+  color: #9d92b8;
+  font-size: 12.5px;
+  letter-spacing: 0.02em;
+}
+
+/* ---- controls ---------------------------------------------------------- */
+.controls {
+  width: 348px;
+  flex: none;
+  height: 100vh;
+  overflow-y: auto;
+  padding: 20px 18px 28px;
+  background: #14101e;
+  border-left: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.controls header h1 {
+  margin: 0;
+  font-family: "Anton", "Arial Narrow", sans-serif;
+  font-size: 34px;
+  letter-spacing: 0.06em;
+  font-weight: 400;
+}
+
+.controls header h1 span {
+  background: linear-gradient(92deg, #ff5e3a, #d62678);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.controls header .tag {
+  margin: 4px 0 6px;
+  color: #b7abd4;
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.group {
+  padding: 14px 0 4px;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.group h2 {
+  margin: 0 0 10px;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #ff9a5c;
+}
+
+.group label {
+  display: block;
+  margin: 8px 0;
+  font-size: 13px;
+  color: #cfc4ea;
+}
+
+.group input[type="text"] {
+  width: 100%;
+  margin-top: 4px;
+  padding: 8px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 8px;
+  background: #0d0a16;
+  color: #fff;
+  font-size: 15px;
+}
+
+.group input[type="text"]:focus {
+  outline: 2px solid #d62678;
+  outline-offset: 0;
+  border-color: transparent;
+}
+
+.bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.bar.col {
+  flex-direction: column;
+  align-items: stretch;
+}
+
+button {
+  font: inherit;
+  font-size: 13.5px;
+  color: #efe9ff;
+  background: #1e1830;
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  border-radius: 9px;
+  padding: 8px 12px;
+  cursor: pointer;
+  text-align: left;
+}
+
+button:hover:not(:disabled) {
+  border-color: rgba(255, 154, 92, 0.65);
+}
+
+button:disabled {
+  opacity: 0.42;
+  cursor: default;
+}
+
+button.active {
+  border-color: #ff5e3a;
+  box-shadow: 0 0 0 1px #ff5e3a, 0 0 18px rgba(255, 94, 58, 0.25);
+}
+
+button strong {
+  display: block;
+  font-size: 14px;
+}
+
+button span {
+  display: block;
+  color: #a99cc9;
+  font-size: 12px;
+  margin-top: 1px;
+}
+
+button.primary {
+  width: 100%;
+  text-align: center;
+  background: linear-gradient(92deg, #3a1c66, #6d1d55);
+}
+
+button.export {
+  width: 100%;
+  margin-top: 10px;
+  padding: 13px;
+  text-align: center;
+  font-family: "Anton", "Arial Narrow", sans-serif;
+  font-size: 19px;
+  letter-spacing: 0.08em;
+  color: #fff;
+  background: linear-gradient(92deg, #ff5e3a, #d62678);
+  border: none;
+}
+
+.switch {
+  display: flex !important;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.switch input {
+  width: 16px;
+  height: 16px;
+  accent-color: #d62678;
+}
+
+.panel-title {
+  margin: 8px 0 2px;
+  font-size: 13px;
+  color: #ffd9a8;
+}
+
+.mini {
+  margin: 10px 0 6px;
+  font-size: 12px;
+  color: #9d92b8;
+}
+
+.samples button {
+  padding: 5px;
+  text-align: center;
+  font-size: 11.5px;
+  color: #cfc4ea;
+}
+
+.samples img {
+  display: block;
+  width: 88px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 5px;
+  margin-bottom: 4px;
+}
+
+.slider {
+  display: flex !important;
+  align-items: center;
+  gap: 8px;
+}
+
+.slider input[type="range"] {
+  flex: 1;
+  accent-color: #ff5e3a;
+}
+
+.row {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.row button {
+  flex: 1;
+  text-align: center;
+}
+
+.chips button {
+  border-radius: 999px;
+  padding: 5px 11px;
+  font-size: 12.5px;
+}
+
+.grades button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1 1 45%;
+}
+
+.grades button i {
+  width: 20px;
+  height: 20px;
+  flex: none;
+  border-radius: 5px;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.25);
+}
+
+#status {
+  min-height: 18px;
+  margin: 10px 0 0;
+  font-size: 13px;
+  color: #8df0b2;
+}
+
+.privacy {
+  margin: 6px 0 0;
+  font-size: 12px;
+  color: #9d92b8;
+}
+
+/* ---- screenshot mode: poster alone, full-bleed -------------------------- */
+body.shot-cover .controls,
+body.shot-cover .hint {
+  display: none;
+}
+
+body.shot-cover .stage-wrap {
+  padding: 0;
+  height: 100vh;
+}
+
+body.shot-cover #stage {
+  max-height: 100vh;
+  max-width: 100vw;
+  box-shadow: none;
+}
